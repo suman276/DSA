@@ -1,0 +1,30 @@
+//day2
+#include <iostream>
+using namespace std;
+
+int main() {
+int cases;
+cin>>cases;
+while(cases>0){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0; i<n; i++){
+        int s;
+        cin>>s;
+        arr[i]=s;
+    }
+    int num;
+    cin>>num;
+    int index=-1;
+    
+   for(int i=0; i<n; i++){
+       if(arr[i]==num){
+           index=i;
+       }
+   }
+   cout<<index<<endl;
+   cases--;
+}
+	return 0;
+}

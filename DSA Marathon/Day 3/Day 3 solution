@@ -1,0 +1,48 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int main(){
+    int cases;
+    cin>>cases;
+    while(cases>0){
+        int n;
+        cin>>n;
+        int arr[n];
+        int num;
+        cin>>num;
+        for(int i=0; i<n; i++){
+            int s;
+            cin>>s;
+            arr[i]=s;
+        }
+        int flag=0;
+        sort(arr, arr+n);
+       
+        for(int i=0; i<n-2; i++){
+            int l,r;
+            
+            l=i+1;
+            r=n-1;
+            
+            while(l<r){
+                if(arr[i]+arr[l]+arr[r]==num){
+                    cout<<"True";
+                    flag++;
+                    break;
+                }
+                else if(arr[i]+arr[l]+arr[r]<num){
+                    l++;
+                }
+                else
+                  r--;
+            }
+        }
+        if(flag==0){
+           cout<<"False"; 
+        }
+        cout<<endl;
+        cases--;
+    }
+    return 0;
+}

@@ -1,0 +1,29 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+using namespace std;
+
+int main(){
+    int cases;
+    cin>>cases;
+    while(cases>0){
+        string a;
+        int count=0;
+        cin>>a;
+        sort(a.begin(), a.end());
+        int p1=1;
+        int p2=2;
+        while(p2<=a.size()){
+        if(a[p1]!=a[p2]){
+            count++;
+            p1=p2;
+        }
+        else
+        p2++;
+        }
+        
+        cout<<count<<endl;
+        cases--;
+    }
+    return 0;
+}

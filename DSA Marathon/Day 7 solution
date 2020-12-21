@@ -1,0 +1,54 @@
+#include <bits/stdc++.h> 
+using namespace std;
+
+class node  
+{  
+    public: 
+    int data;  
+    node* next;  
+};  
+node *new_node(int data)  
+{  
+    node *temp = new node;  
+    temp->data = data;  
+    temp->next = NULL;  
+    return temp;  
+}  
+
+int main(){
+    int cases;
+    cin>>cases;
+    while(cases>0){
+       int value;
+       int length;
+       cin>>length;
+        int length2=length-1;
+       cin>>value;
+       node* head=new_node(value);
+       node * save=head;
+       while(length>1){
+           int s;
+           cin>>s;
+           node* save1=new_node(s);
+           save->next=save1;
+          save=save->next;
+           length--;
+       }
+       int result=0;
+       node* d=head;
+       while(d!=NULL){
+          if(d->data==1){
+              result= pow(2,length2)+result;
+              length2--;
+          }
+          else if(d->data==0){
+              length2--;
+          }
+          d=d->next;
+       }
+      
+      cout<<result<<endl;
+        cases--;
+    }
+    return 0;
+}

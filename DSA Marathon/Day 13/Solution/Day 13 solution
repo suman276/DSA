@@ -1,0 +1,68 @@
+#include<iostream>
+#include<set>
+using namespace std;
+
+class myqueue { 
+    public:
+    int front, rear, capacity; 
+    int* queue; 
+    myqueue(int n) 
+    { 
+        front = rear = 0; 
+        capacity = n; 
+        queue = new int; 
+    } 
+  
+    ~myqueue() { delete[] queue; } 
+    
+    void enqueue(int data) 
+    { 
+         
+        if (capacity == rear) { 
+            return; 
+        } 
+        else { 
+            queue[rear] = data; 
+            rear++; 
+        } 
+        return; 
+    } 
+ 
+ void check(int val){
+     int k=front;
+     int count=0;
+      while(k!=rear){
+          if(queue[k]==val)
+          count++;
+        k++;  
+      }
+      if(count!=0)
+      cout<<count<<endl;
+      else
+      cout<<count<<endl;
+ }
+};
+ 
+int main(){
+    int cases;
+    cin>>cases;
+    while(cases>0){
+         int num;
+          set<int>save;
+         cin>>num;
+         myqueue t(num);
+         for(int i=0; i<num; i++){
+             int s;
+             cin>>s;
+             save.insert(s);
+             t.enqueue(s);
+         }
+        for (auto itr = save.begin(); 
+         itr != save.end(); ++itr) {
+             t.check(*itr);
+         }
+       
+        cases--;
+    }
+    return 0;
+}

@@ -1,0 +1,68 @@
+#include<iostream>
+#include<set>
+using namespace std;
+
+class myqueue { 
+    public:
+    int front, rear, capacity; 
+    int* queue; 
+    myqueue(int n) 
+    { 
+        front = rear = 0; 
+        capacity = n; 
+        queue = new int; 
+    } 
+
+    ~myqueue() { delete[] queue; } 
+
+    void enqueue(int data) 
+    { 
+
+        if (capacity == rear) { 
+            return; 
+        } 
+        else { 
+            queue[rear] = data; 
+            rear++; 
+        } 
+        return; 
+    }
+    
+    void print() 
+    { 
+        for(int i=rear-1; i>front-1; i--){
+            cout<<queue[i]<<" ";
+        }
+    } 
+};
+
+//  myqueue reverse(myqueue t){
+//      myqueue p(t.capacity);
+     
+//      for(int i=0; i<t.capacity; i++){
+//          int n1=t.dequeue();
+//          p.enqueue(n1);
+//      }
+    
+//     return p;
+//  }
+
+int main(){
+    int cases;
+    cin>>cases;
+    while(cases>0){
+         int num;
+         cin>>num;
+         myqueue t(num);
+         for(int i=0; i<num; i++){
+             int s;
+             cin>>s;
+             t.enqueue(s);
+         }
+       //t=reverse(t);
+       t.print();
+           cout<<endl;
+        cases--;
+    }
+    return 0;
+}
